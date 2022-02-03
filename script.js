@@ -39,7 +39,8 @@ function checkWhoWon() {
 
 for(let i=1; i<=9; i++){
     document.getElementById(i).addEventListener("click", () => {
-        document.getElementById(i).textContent = xoryTurn
+        if(document.getElementById(i).textContent == ""){
+            document.getElementById(i).textContent = xoryTurn
 
         // change player turn
         if (xoryTurn === "X"){
@@ -55,6 +56,7 @@ for(let i=1; i<=9; i++){
             displayGameInfo.innerHTML = "X won"
         } else if(checkWhoWon() === 'O'){
             displayGameInfo.innerHTML = "O won"
+        }
         }
     })
 }
