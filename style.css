@@ -5,8 +5,14 @@ body{
     align-items: center;
 }
 
+main{
+    width: fit-content;
+    padding-top: 80px;
+    text-align: center;
+    position: relative;
+}
+
 #container{
-    padding-top: 5rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -26,4 +32,68 @@ body{
 
 #game-info{
     font-size: 2rem;
+}
+
+.dont-display{
+    display: none;
+}
+
+.fXline{
+    position: absolute;
+    top: 127px;
+    right: -11px;
+}
+
+.sXline{
+    position: absolute;
+    top: 239px;
+    right: -11px;
+}
+
+.tXline{
+    position: absolute;
+    top: 350px;
+    right: -11px;
+}
+
+.fYline{
+    position: absolute;
+    top: 237px;
+    left: -120px;
+    transform: rotate(90deg);
+}
+
+.sYline{
+    position: absolute;
+    top: 237px;
+    left: -10px;
+    transform: rotate(90deg);
+}
+
+.tYline{
+    position: absolute;
+    top: 237px;
+    left: 100px;
+    transform: rotate(90deg);
+}
+
+.fDline{
+    position: absolute;
+    top: 237px;
+    left: -10px;
+    transform: rotate(45deg);
+}
+
+.sDline{
+    position: absolute;
+    top: 237px;
+    left: -10px;
+    transform: rotate(135deg);
+}
+
+#line{
+    background-color: black;
+    height: 10px;
+    width: 350px;
+    border-radius: 10px;
 }

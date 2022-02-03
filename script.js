@@ -1,5 +1,6 @@
 const displayPlayerTurn = document.getElementById("game-info-span")
 const displayGameInfo = document.getElementById("game-info")
+const line = document.getElementById("line")
 let xoryTurn = "X"
 
 function checkWhoWon() {
@@ -37,6 +38,51 @@ function checkWhoWon() {
     }
 }
 
+function displayTheWiningMove(player){
+    let one = document.getElementById("1").textContent
+    let two = document.getElementById("2").textContent
+    let three = document.getElementById("3").textContent
+    let four = document.getElementById("4").textContent
+    let five = document.getElementById("5").textContent
+    let six = document.getElementById("6").textContent
+    let seven = document.getElementById("7").textContent
+    let eight = document.getElementById("8").textContent
+    let nine = document.getElementById("9").textContent
+
+    if(one===two && two===three && three===player){
+        line.classList.remove("dont-display")
+        line.classList.add("fXline")
+    }
+    else if(four===five && five===six && six===player) {
+        line.classList.remove("dont-display")
+        line.classList += "sXline"
+    }
+    else if(seven===eight && eight===nine && nine===player){
+        line.classList.remove("dont-display")
+        line.classList += "tXline"
+    }
+    else if(one===four && four===seven && seven===player) {
+        line.classList.remove("dont-display")
+        line.classList += "fYline"
+    }
+    else if(two===five && five===eight && eight===player) {
+        line.classList.remove("dont-display")
+        line.classList += "sYline"
+    }
+    else if(three===six && six===nine && nine===player) {
+        line.classList.remove("dont-display")
+        line.classList += "tYline"
+    }
+    else if(one===five && five===nine && nine===player) {
+        line.classList.remove("dont-display")
+        line.classList += "fDline"
+    }
+    else if(three===five && five===seven && seven===player){
+        line.classList.remove("dont-display")
+        line.classList += "sDline"
+    }
+}
+
 for(let i=1; i<=9; i++){
     document.getElementById(i).addEventListener("click", () => {
         if(document.getElementById(i).textContent == ""){
@@ -54,8 +100,10 @@ for(let i=1; i<=9; i++){
         // check if anyone won
         if(checkWhoWon() === 'X') {
             displayGameInfo.innerHTML = "X won"
+            displayTheWiningMove('X')
         } else if(checkWhoWon() === 'O'){
             displayGameInfo.innerHTML = "O won"
+            displayTheWiningMove('O')
         }
         }
     })
