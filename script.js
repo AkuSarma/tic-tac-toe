@@ -2,6 +2,7 @@ const displayPlayerTurn = document.getElementById("game-info-span")
 const displayGameInfo = document.getElementById("game-info")
 const line = document.getElementById("line")
 let xoryTurn = "X"
+let gameCompleted = false
 
 function checkWhoWon() {
     let one = document.getElementById("1").textContent
@@ -85,7 +86,7 @@ function displayTheWiningMove(player){
 
 for(let i=1; i<=9; i++){
     document.getElementById(i).addEventListener("click", () => {
-        if(document.getElementById(i).textContent == ""){
+        if(document.getElementById(i).textContent == "" && gameCompleted === false){
             document.getElementById(i).textContent = xoryTurn
 
         // change player turn
@@ -101,9 +102,11 @@ for(let i=1; i<=9; i++){
         if(checkWhoWon() === 'X') {
             displayGameInfo.innerHTML = "X won"
             displayTheWiningMove('X')
+            gameCompleted = true
         } else if(checkWhoWon() === 'O'){
             displayGameInfo.innerHTML = "O won"
             displayTheWiningMove('O')
+            gameCompleted = true
         }
         }
     })
