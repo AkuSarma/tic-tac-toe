@@ -1,6 +1,7 @@
 const displayPlayerTurn = document.getElementById("game-info-span")
 const displayGameInfo = document.getElementById("game-info")
 const line = document.getElementById("line")
+const gameOverMessage = document.getElementById("game-over-message")
 let xoryTurn = "X"
 let gameCompleted = false
 
@@ -84,6 +85,35 @@ function displayTheWiningMove(player){
     }
 }
 
+function checkIfAllBoxesAreFilled() {
+    let one = document.getElementById("1").textContent
+    let two = document.getElementById("2").textContent
+    let three = document.getElementById("3").textContent
+    let four = document.getElementById("4").textContent
+    let five = document.getElementById("5").textContent
+    let six = document.getElementById("6").textContent
+    let seven = document.getElementById("7").textContent
+    let eight = document.getElementById("8").textContent
+    let nine = document.getElementById("9").textContent
+
+    if(one != "" &&
+        two != "" &&
+        three != "" &&
+        four != "" &&
+        five != "" &&
+        six != "" &&
+        seven != "" &&
+        eight != "" &&
+        nine != ""
+    ){
+        return true
+    }
+}
+
+function gameOver(message) {
+    gameOverMessage.textContent = message + " refresh to play again"
+}
+
 for(let i=1; i<=9; i++){
     document.getElementById(i).addEventListener("click", () => {
         if(document.getElementById(i).textContent == "" && gameCompleted === false){
@@ -103,10 +133,18 @@ for(let i=1; i<=9; i++){
             displayGameInfo.innerHTML = "X won"
             displayTheWiningMove('X')
             gameCompleted = true
+            gameOver("Game completed")
         } else if(checkWhoWon() === 'O'){
             displayGameInfo.innerHTML = "O won"
             displayTheWiningMove('O')
             gameCompleted = true
+            gameOver("Game completed")
+        }
+        
+        // check if all boxes are filled
+        if(checkIfAllBoxesAreFilled() === true){
+            gameOver("Game Over")
+            displayGameInfo.innerHTML = "Draw"
         }
         }
     })
