@@ -142,7 +142,7 @@ for(let i=1; i<=9; i++){
         }
         
         // check if all boxes are filled
-        if(checkIfAllBoxesAreFilled() === true){
+        else if(checkIfAllBoxesAreFilled() === true){
             gameOver("Game Over")
             displayGameInfo.innerHTML = "Draw"
         }
