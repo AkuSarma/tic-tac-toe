@@ -92,7 +92,7 @@ main{
 }
 
 #line{
-    background-color: black;
+    background: linear-gradient(90deg, black, white, black, white, black, white);
     height: 10px;
     width: 350px;
     border-radius: 10px;
