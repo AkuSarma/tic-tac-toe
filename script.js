@@ -111,7 +111,7 @@ function checkIfAllBoxesAreFilled() {
 }
 
 function gameOver(message) {
-    gameOverMessage.textContent = message + " refresh to play again"
+    gameOverMessage.textContent = message + " click on reset button to play again"
 }
 
 for(let i=1; i<=9; i++){
@@ -145,6 +145,7 @@ for(let i=1; i<=9; i++){
         else if(checkIfAllBoxesAreFilled() === true){
             gameOver("Game Over")
             displayGameInfo.innerHTML = "Draw"
+            gameCompleted = true
         }
         }
     })
